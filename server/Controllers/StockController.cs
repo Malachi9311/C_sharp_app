@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using server.Data;
+using server.Mappers;
 
 namespace server.Controllers
 {
@@ -20,7 +21,8 @@ namespace server.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var stocks = _context.Stocks.ToList();
+            var stocks = _context.Stocks.ToList()
+            .Select(s => s.ToStockDto());
 
             return Ok(stocks);
         }
@@ -34,7 +36,7 @@ namespace server.Controllers
             {
                 return BadRequest();
             }
-            return Ok(stock);
+            return Ok(stock.ToStockDto());
         }
     }
 }
