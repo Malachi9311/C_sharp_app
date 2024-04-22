@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "A9kXJQcf68ODOVQImTGnrlFwZ0vXXtY6Hc2tnU1qYLuUveZ+A3dWPGhvKactCSX8r44NnBZLJw8lyM6A8fQYkA==",
-  "success": false,
+  "dgSpecHash": "J8g97Y/jnkUeVevNPyTWbfBZt21+sUbniFMXuBkd0LKLABkSH+ozN1+QzlpXG71LkL5D7xPsu/wyz1B8HKzjew==",
+  "success": true,
   "projectFilePath": "C:\\Users\\Ntuthuko\\Desktop\\C_sharp_app\\server\\server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ntuthuko\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
@@ -17,9 +17,9 @@
     "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
     "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.0\\microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512",
-    "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0\\microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
-    "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0\\microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.0\\microsoft.entityframeworkcore.analyzers.8.0.0.nupkg.sha512",
+    "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.4\\microsoft.entityframeworkcore.8.0.4.nupkg.sha512",
+    "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.4\\microsoft.entityframeworkcore.abstractions.8.0.4.nupkg.sha512",
+    "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.4\\microsoft.entityframeworkcore.analyzers.8.0.4.nupkg.sha512",
     "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.4\\microsoft.entityframeworkcore.design.8.0.4.nupkg.sha512",
     "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.4\\microsoft.entityframeworkcore.relational.8.0.4.nupkg.sha512",
     "C:\\Users\\Ntuthuko\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\8.0.0\\microsoft.entityframeworkcore.sqlserver.8.0.0.nupkg.sha512",
@@ -87,15 +87,5 @@
     "C:\\Users\\Ntuthuko\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Ntuthuko\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore from 8.0.4 to 8.0.0. Reference the package directly from the project to select a different version. \r\n server -> Microsoft.EntityFrameworkCore.Design 8.0.4 -> Microsoft.EntityFrameworkCore.Relational 8.0.4 -> Microsoft.EntityFrameworkCore (>= 8.0.4) \r\n server -> Microsoft.EntityFrameworkCore (>= 8.0.0)",
-      "libraryId": "Microsoft.EntityFrameworkCore",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }
