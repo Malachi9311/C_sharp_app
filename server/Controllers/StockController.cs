@@ -22,8 +22,7 @@ namespace server.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var stocks = _context.Stocks.ToList()
-            .Select(s => s.ToStockDto());
+            var stocks = _context.Stocks.ToList().Select(s => s.ToStockDto());
 
             return Ok(stocks);
         }
