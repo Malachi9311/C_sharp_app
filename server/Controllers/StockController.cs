@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server.Data;
 using server.Dtos.Stock;
+using server.Interfaces;
 using server.Mappers;
 using server.Repository;
 
@@ -16,8 +17,8 @@ namespace server.Controllers
     public class StockController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
-        private readonly StockRepository _stockRepo;
-        public StockController(ApplicationDBContext context, StockRepository stockRepo)
+        private readonly IStockRepository _stockRepo;
+        public StockController(ApplicationDBContext context, IStockRepository stockRepo)
         {
             _context = context;
             _stockRepo = stockRepo;
@@ -76,9 +77,6 @@ namespace server.Controllers
             {
                 return NotFound();
             }
-
-            _context.Stocks.Remove(stockModel);
-            await _context.SaveChangesAsync();
             
             return NoContent();
         }
