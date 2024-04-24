@@ -7,6 +7,7 @@ using server.Data;
 using server.Dtos.Comment;
 using server.Interfaces;
 using server.Mappers;
+using server.Helpers;
 
 namespace server.Controllers
 {
@@ -25,10 +26,14 @@ namespace server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] CommentQueryObject queryObject)
         {
-            var comments = await _commRepo.GetAllAsync();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var comments = await _commRepo.GetAllAsync(queryObject);
             var commentDto = comments.Select(x => x.ToCommentDto());
+            
             return Ok(commentDto);
         }
 

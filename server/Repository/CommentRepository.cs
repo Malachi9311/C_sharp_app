@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using server.Data;
 using server.Models;
 using server.Interfaces;
+using server.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace server.Repository
@@ -18,9 +19,20 @@ namespace server.Repository
             _context = context;
         }
 
-        public async Task<List<Comment>> GetAllAsync()
+        public async Task<List<Comment>> GetAllAsync(CommentQueryObject queryObject)
         {
-            return await _context.Comments.ToListAsync();
+            var comments = _context.Comments.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(queryObject.Symbol))
+            {
+                comments = comments.Where(s => s.Stock.Symbol == queryObject.Symbol);
+            }
+            if (queryObject.IsDescending == true)
+            {
+                comments = comments.OrderByDescending(c => c.CreatedOn);
+            }
+
+            return await comments.ToListAsync();
         }
         public async Task<Comment?> GetById(int id)
         {

@@ -7,7 +7,7 @@ namespace server.Helpers
 {
     public class CommentQueryObject
     {
-        public string? Symbol { get; set; } = null;
+        public string? Symbol { get; set; } = string.Empty; 
         public bool IsDescending { get; set; } = true;
     }
 }
