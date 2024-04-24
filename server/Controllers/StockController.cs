@@ -9,6 +9,7 @@ using server.Dtos.Stock;
 using server.Interfaces;
 using server.Mappers;
 using server.Repository;
+using server.Helpers;
 
 namespace server.Controllers
 {
@@ -25,12 +26,15 @@ namespace server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
-            var stocks = await _stockRepo.GetAllAsync();
-            var stockDto = stocks.Select(s => s.ToStockDto());
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            return Ok(stocks);
+            var stocks = await _stockRepo.GetAllAsync(query);
+            var stockDto = stocks.Select(s => s.ToStockDto()).ToList();
+
+            return Ok(stockDto);
         }
 
         [HttpGet("{id}")]
