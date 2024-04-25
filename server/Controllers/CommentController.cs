@@ -8,7 +8,7 @@ using server.Dtos.Comment;
 using server.Interfaces;
 using server.Mappers;
 using server.Helpers;
-
+using Microsoft.AspNetCore.Authorization;
 namespace server.Controllers
 {
     [Route("api/comments")]
@@ -26,6 +26,7 @@ namespace server.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll([FromQuery] CommentQueryObject queryObject)
         {
             if (!ModelState.IsValid)

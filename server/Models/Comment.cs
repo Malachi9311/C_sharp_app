@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace server.Models
 {
+    [Table("Comments")]
     public class Comment
     {
         public int Id { get; set; }
@@ -13,5 +15,7 @@ namespace server.Models
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         public int? StockId { get; set; }
         public Stock? Stock { get; set; }
+        public string AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }

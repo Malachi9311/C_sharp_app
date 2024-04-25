@@ -18,10 +18,23 @@ namespace server.Data
         }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Portfolio> Portfolios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Portfolio>(p => p.HasKey(pf => new { pf.AppUserId, pf.StockId }));
+
+            builder.Entity<Portfolio>()
+                .HasOne(u => u.AppUser)
+                .WithMany(u => u.Portfolios)
+                .HasForeignKey(pf => pf.AppUserId);
+
+            builder.Entity<Portfolio>()
+                .HasOne(u => u.Stock)
+                .WithMany(u => u.Portfolios)
+                .HasForeignKey(pf => pf.StockId);
             
             List<IdentityRole> roles = new List<IdentityRole>
             {
